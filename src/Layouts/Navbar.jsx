@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const links = [
     {id: 1, name: "Discover", path: "/"},
@@ -13,6 +13,12 @@ const links = [
 ];
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/Login");
+    };
+
     const [isOpen, setIsOpen] = useState(() => {
         try {
             const saved = localStorage.getItem("isOpen");
