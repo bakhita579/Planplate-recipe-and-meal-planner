@@ -7,7 +7,9 @@ const links = [
     {id: 3, name: "Register", path: "/Register"},
     {id: 4, name: "Favourite", path: "/Favourite"},
     {id: 5, name: "Planner", path: "/Planner"},
-    {id: 6, name: "Shopping-List", path: "/Shopping-List"}
+    {id: 6, name: "Shopping-List", path: "/Shopping-List"},
+    {id: 7, name: "RecipeDetail", path: "/RecipeDetail"},
+    {id: 8, name: "NotFound", path: "*"}
 ];
 
 function Navbar() {
