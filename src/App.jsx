@@ -24,6 +24,7 @@ function App() {
           <Route path="Planner" element={<Planner />} />
           <Route path="Shopping-List" element={<ShoppingList />} />
           <Route path="Discover" element={<Discover />} />
+          <Route path="/recipe/:recipeId"element={<RecipeDetails />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
