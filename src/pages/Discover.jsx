@@ -125,6 +125,28 @@ function Discover() {
             <label htmlFor="search recipe" className="font-serif text-l p-3 ">Search recipes</label>
             <input id="recipe-search" type="search" value={searchQuery} onChange={handleSearch} 
             className="font-serif w-full max-w-md py-1.5 p-2 border border-black rounded-lg  focus:outline cursor"/>
+            
+            <div role="group" aria-label="filter by catergory" className="inline-flex px-5  flex-wrap items-center bg-white divide-x divide-gray-300 mt-3 border border-gray-100 rounded-lg overflow-hidden  cursor-pointer gap-3">
+                
+                        <button type="button" onClick={() => handleCatergoryClick("")} aria-pressed={selectedCatergories === ""}
+                        
+                        className={`px-3 py-1 rounded-full border  ${
+            selectedCatergories === "" ? "bg-red-700 text-black border-red-700" : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 " }`}> All </button>
+               {catergories.map((catergory) => (
+                <button key={catergory} 
+                type="button" 
+                onClick={() => handleCatergoryClick(catergory)}
+                aria-pressed={selectedCatergories === ""}
+                        
+                className={`px-3 py-1 rounded-lg border cursor-pointer font-serif flex flex-wrap gap-2 bg-white ${
+            selectedCatergories === ""
+                ? "bg-red-700 text-white border-red-700"
+                : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 "
+        }`}  >
+                    {catergory}
+                </button>
+               ))}
+           </div>
 
         </form>
       </div>

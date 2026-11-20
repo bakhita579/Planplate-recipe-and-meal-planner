@@ -26,7 +26,7 @@ export async function getCatergories() {
         
     }
     const data = await response.json()
-    return (data.meals ?? []).map((item)=> item.str.Catergory)
+    return (data.meals ?? []).map((item)=> item.strCategory)
 
     
 }
@@ -37,5 +37,5 @@ export async function getMealByCatergory(catergory) {
         
     }
     const data = await response.json()
-    return data.meal ?? []
+    return data.meals ?? []
 }
