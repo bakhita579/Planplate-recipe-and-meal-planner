@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router";
 import { searchMeals } from "../services/mealService";
+import RecipeCard from "../components/Recipes/RecipesCard";
 
 function Discover() {
     const [meals, setMeals] = useState([])
@@ -43,11 +44,7 @@ function Discover() {
       )}
       <ul className="Meal-card grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6" >
                 {meals.map((meal) => (
-                    <li key={meal.idMeal}>
-                        <img src={meal.strMealThumb} alt={meal.strMeal} />
-                        <h2>{meal.strMeal}</h2>
-                        <p>{meal.strCategory}</p>
-                    </li>
+                    <li key={meal.idMeal}><RecipeCard meal={meal} /></li>
                 ))}
             </ul>
 
