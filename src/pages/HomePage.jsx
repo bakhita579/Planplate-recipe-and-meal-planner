@@ -32,8 +32,19 @@ function HomePage() {
                 <div>
             <h1 className="font-bold">Home</h1>
             <h2>Discover recipes</h2>
+            <p>Discover new recipes and plan your week
+            </p>
             </div>
-            <div className=" flex items-center">
+            <nav className="flex items-center justify-between px-2 py-2 border-b">
+                <div className="flex items-center gap-3">
+                    <Link to = "/">Home</Link>
+                    <Link to = "/Discover">Discover</Link>
+                    <Link to = "/Favourite">Favourite</Link>
+                    <Link to = "/Planner">planner</Link>
+                    <Link to = "/Shopping-List">Shopping List</Link>
+                </div>
+            </nav>
+            <div className=" flex items-center underline text-red-700">
                 <Link to = "/Login">LogIn</Link>
                 </div>
                 </header>
@@ -42,7 +53,7 @@ function HomePage() {
             {!loading && !error && meals.length === 0 && (
         <p className="text-gray-500">No recipes found.</p>
       )}
-            <ul className="Meal-card grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-6" >
+            <ul className="Meal-card grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6" >
                 {meals.map((meal) => (
                     <li key={meal.idMeal}>
                         <img src={meal.strMealThumb} alt={meal.strMeal} />

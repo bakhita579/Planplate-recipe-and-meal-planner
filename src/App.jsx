@@ -10,6 +10,7 @@ import Register from './pages/Register'
 import ShoppingList from './pages/ShoppingList'
 import NotFound from './pages/NotFound'
 import Favourite from './pages/Favourite'
+import Discover from './pages/Discover'
 
 function App() {
   return(
@@ -22,7 +23,7 @@ function App() {
           <Route path="Favourite" element={<Favourite />} />
           <Route path="Planner" element={<Planner />} />
           <Route path="Shopping-List" element={<ShoppingList />} />
-          <Route path="recipe/:id" element={<RecipeDetails />} />
+          <Route path="Discover" element={<Discover />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
