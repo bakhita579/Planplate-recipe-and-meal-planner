@@ -6,6 +6,7 @@ import { getErrorMessages } from "../utils/AuthErrors"
 import { registerUser } from "../services/authService"
 import { logIn } from "../services/authService"
 import { hasErrors, validateLoginForm } from "../utils/Validators"
+import GoogleButton from "../components/auth/GoogleButton"
 
 
 function Login(){
@@ -82,11 +83,16 @@ function Login(){
                 {submitting ? "logging ... ": "log in "}
             </button>
             <div className="text-center pt-1.5">
+            
+               </div>
+               <div className="text-center pt-1.5 space-y-2">
+            <p className="text-sm text-gray-500 font-serif">or</p>
+            <GoogleButton />
+
             <p className="text-xs italic font-bold text-black font-serif">Don't have an account</p>
             <Link className="font-bold text-black uppercase text-xs hover:underline font-serif" to = "/Register">Create account</Link>
-               </div>
-            </form>
-            
+            </div>
+            </form>  
             </div>
 
         
