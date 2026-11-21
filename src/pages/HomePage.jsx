@@ -12,7 +12,7 @@ function HomePage() {
     useEffect(() => {
         async function loadMeal() {
             try {
-                const results = await searchMeals("chicken")
+                const results = await searchMeals("All")
                 setMeals(Array.isArray(results) ? results : results ?.meals || [])
             } catch (error) {
                 console.error("could not load recipe", error)
