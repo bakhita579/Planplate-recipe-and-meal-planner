@@ -35,15 +35,7 @@ function HomePage() {
             <p>Discover new recipes and plan your week
             </p>
             </div>
-            <nav className="flex items-center justify-between px-2 py-2 border-b">
-                <div className="flex items-centre gap-3 font-serif cursor-pointer">
-                    <Link to = "/">Home</Link>
-                    <Link to = "/Discover">Discover</Link>
-                    <Link to = "/Favourite">Favourite</Link>
-                    <Link to = "/Planner">planner</Link>
-                    <Link to = "/Shopping-List">Shopping List</Link>
-                </div>
-            </nav>
+            
             <div className=" flex items-center underline text-red-700 font-serif">
                 <Link to = "/Login">LogIn</Link>
                 </div>
