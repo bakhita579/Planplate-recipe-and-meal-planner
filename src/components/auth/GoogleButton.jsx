@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { replace, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { useLocation } from "react-router";
 import { loginWithGoogle } from "../../services/authService";
 import { getErrorMessages } from "../../utils/AuthErrors";
@@ -20,8 +20,11 @@ function GoogleButton() {
             await loginWithGoogle()
             Navigate (from, {replace:true})
         } catch (error) {
-            setError(getErrorMessages(error))
-            console.log(error.code);  
+            if (error.code !== "auth/popup-closed-by-user") {
+                setError(getErrorMessages(error));
+            }
+            console.log(error.code);
+            
         }finally{
             setSubmitting(false)
         }
@@ -31,6 +34,7 @@ function GoogleButton() {
             <button type="button" onClick={handleClick} disabled={submitting}>
                  {submitting ? "openning google ... ": "continue with google "}
             </button>
+            {error && <p className="text-red-600 text-xs font-serif mt-2">{error}</p>}
         </div>
      )
     

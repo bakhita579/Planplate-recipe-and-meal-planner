@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { getIngredients } from "../utils/getIngredients";
 import { getMealById } from "../services/mealService";
 import { useParams } from "react-router";
+import FavouriteButton from "../components/Recipes/FavouriteButton";
 
 function RecipeDetails() {
     const {recipeId} = useParams()
@@ -18,7 +19,6 @@ function RecipeDetails() {
                 setError("")
                 try {
                     const response = await getMealById(recipeId)
-                    if (!ignore) setMeal(response)
                    if (!ignore) {
                 const foundMeal = response?.meals ? response.meals[0] : Array.isArray(response) ? response[0] : response;
                     setMeal(foundMeal || null);}
@@ -39,15 +39,15 @@ function RecipeDetails() {
         
             if(loading)
                 return(
-            <p>Recide loading ...</p> 
+            <p className="font-serif italic ">Recide loading ...</p> 
         )
         if (error) return(
             <p role="alert">{error}</p>
         )
         if (!meal) return(
             <div>
-                <p>Recipe not found</p>
-                <Link to= "/Discover" className="text-red-600 underline">Back to Discover</Link>
+                <p className="font-serif italic">Recipe not found</p>
+                <Link to= "/Discover" className="text-red-600 underline" >Back to Discover</Link>
             </div>
         )
     
@@ -61,9 +61,10 @@ function RecipeDetails() {
             <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy"className="w-full h-72 md:h-full object-cover"/>
              <div className="p-4 sm:p-5 flex flex-col justify-center">
             {meal.strCategory && (
-                <p className="self-start bg-red-50 text-red-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">{meal.sstrCategory}
+                <p className="self-start bg-red-50 text-red-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">{meal.strCategory}
                 </p>)} 
              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 font-serif">{meal.strMeal}</h1> 
+              <FavouriteButton meals = {meal}/>
             </div> 
             </div>  
             <div className="p-5 sm:p-7 border-t border-black">  
