@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { Link } from "react-router"
+import { useNavigate } from "react-router"
 import { registerUser } from "../services/authService"
 import { validateRegisterForm } from "../utils/Validators"
 import { hasErrors } from "../utils/Validators"
 import { getErrorMessages } from "../utils/AuthErrors"
+import GoogleButton from "../components/auth/GoogleButton"
 
 function Register() {
     const [email, setEmail] = useState("")
@@ -13,6 +15,7 @@ function Register() {
         const [formError, setFormError] = useState("")
         const [submitting, setSubmitting] = useState(false)
         const [success, setSuccess] = useState(false)
+        const navigate = useNavigate()
     
         async function handleSubmit(event) {
                 event.preventDefault()
@@ -28,6 +31,7 @@ function Register() {
             
             try {
                 await registerUser(email.trim(),password) 
+                navigate("/Discover")
                 setSuccess(true)
             } catch (error) {
                 setFormError(getErrorMessages(error))
@@ -91,8 +95,11 @@ function Register() {
             <button type="submit" disabled={submitting} className="bg-blue-700 w-full hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition duration-100 cursor-pointer font-serif">
     {submitting ? "creating account ... " : "Register "}
 </button>
-            <div>
-            <p className="text-l italic font-bold text-black font-serif ">create account</p>
+            
+                 <div className="text-center pt-1.5 space-y-2">
+            <p className="text-sm text-gray-500 font-serif">or</p>
+            <GoogleButton />
+            <p className="text-l italic font-bold text-black font-serif ">Already have an account?</p>
             <Link className="font-bold text-black uppercase text-l hover:underline font-serif" to="/Login">Log in</Link>
             </div>
         </form>
