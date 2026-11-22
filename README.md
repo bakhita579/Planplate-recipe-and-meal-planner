@@ -201,5 +201,4 @@ src/
 4. Open a pull request with a clear summary and verification steps.
 
 ## License
-
 This project is licensed under the MIT License
