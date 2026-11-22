@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import { signOut } from "../services/authService";
 
@@ -43,32 +43,45 @@ function Navbar() {
             return links;
         }
     });
+    const pillClass = ({ isActive }) =>
+    `px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+        isActive
+            ? "bg-[#e65322] text-white border border-[#e65322]"
+            : "bg-white text-gray-800 border border-gray-300 hover:border-[#e65322] hover:text-[#e65322]"
+    }`;
 
-    return (
-        <header className="flex justify-between items-center mb-3">
-             <nav className="flex items-center justify-between px-2 py-2 border-b">
-                <div className="flex items-center gap-3 font-serif cursor-pointer">
-                    <Link to = "/">Home</Link>
-                    <Link to = "/Discover">Discover</Link>
-                    {! loading &&  user && (
-                        <>
-                    <Link to = "/Favourite">Favourite</Link>
-                    <Link to = "/Planner">planner</Link>
-                    <Link to = "/Shopping-List">Shopping List</Link>
-                    <button type="button" onClick={handleLogout}>Log out</button>
+    
+        return (
+    <header className="w-full flex justify-end items-center px-6 py-4 mb-3">
+        <nav aria-label="main">
+            <div className="flex flex-wrap items-center gap-3 font-serif">
+                <NavLink to="/" end className={pillClass}>Home</NavLink>
+                <NavLink to="/Discover" className={pillClass}>Discover</NavLink>
+                {!loading && user && (
+                    <>
+                        <NavLink to="/Favourite" className={pillClass}>Favourite</NavLink>
+                        <NavLink to="/Planner" className={pillClass}>Planner</NavLink>
+                        <NavLink to="/Shopping-List" className={pillClass}>Shopping List</NavLink>
+                        <button
+                            type="button"
+                            onClick={handleLogout}
+                            className="px-5 py-2 rounded-full text-sm font-medium bg-[#e65322] text-white hover:bg-[#cf4618] transition-colors cursor-pointer"
+                        >
+                            Log out
+                        </button>
                     </>
-                    )}
-                    {! loading && !user && (
-                        <>
-                    <Link to = "/Login">Login</Link>
-                    <Link to = "/Register">Register</Link>
+                )}
+                {!loading && !user && (
+                    <>
+                        <NavLink to="/Login" className={pillClass}>Login</NavLink>
+                        <NavLink to="/Register" className={pillClass}>Register</NavLink>
                     </>
-                    )}
-                </div>
-            </nav>
-           
-        </header>
-    );
+                )}
+            </div>
+        </nav>
+    </header>
+);
+    
 }
 
 export default Navbar;

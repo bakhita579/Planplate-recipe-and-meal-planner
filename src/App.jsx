@@ -11,7 +11,7 @@ import ShoppingList from './pages/ShoppingList'
 import NotFound from './pages/NotFound'
 import Favourite from './pages/Favourite'
 import Discover from './pages/Discover'
-import protectedRoute from './components/auth/ProtectedRoute'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 
 function App() {
   return(
@@ -21,13 +21,13 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
-          <Route element = {< protectedRoute />} />
-          <Route path="Favourite" element={<Favourite />} />
-          <Route path="Planner" element={<Planner />} >
-          <Route path="Shopping-List" element={<ShoppingList />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="Favourite" element={<Favourite />} />
+            <Route path="Planner" element={<Planner />} />
+            <Route path="Shopping-List" element={<ShoppingList />} />
           </Route>
           <Route path="Discover" element={<Discover />} />
-          <Route path="/recipe/:recipeId"element={<RecipeDetails />} />
+          <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

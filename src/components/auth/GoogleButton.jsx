@@ -31,8 +31,8 @@ function GoogleButton() {
      }
      return(
         <div>
-            <button type="button" onClick={handleClick} disabled={submitting}>
-                 {submitting ? "openning google ... ": "continue with google "}
+            <button type="button" onClick={handleClick} disabled={submitting} className="w-full py-3.5 px-6 text-base bg-[#e4572e] hover:bg-[#cc4a24] disabled:opacity-60 text-white font-semibold rounded-lg transition duration-100 cursor-pointer font-serif">
+                 {submitting ? "opening google ... ": "continue with google "}
             </button>
             {error && <p className="text-red-600 text-xs font-serif mt-2">{error}</p>}
         </div>

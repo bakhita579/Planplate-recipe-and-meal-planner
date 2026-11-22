@@ -19,7 +19,7 @@ export async function getMealById(id) {
     return data.meals ?? []
     
 }
-export async function getCatergories() {
+export async function getCategories() {
     const response = await fetch (`${API_URL}/list.php?c=list`)
     if (!response.ok){
         throw new Error("Could not load recipes");
@@ -30,8 +30,8 @@ export async function getCatergories() {
 
     
 }
-export async function getMealByCatergory(catergory) {
-    const response = await fetch (`${API_URL}/filter.php?c=${encodeURIComponent(catergory)}`)
+export async function getMealsByCategory(category) {
+    const response = await fetch (`${API_URL}/filter.php?c=${encodeURIComponent(category)}`)
     if (!response.ok){
         throw new Error("Could not load recipes");
         

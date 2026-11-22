@@ -44,7 +44,7 @@ function Register() {
     }
     return(
         <div className="Reg-container min-h-screen flex items-center justify-center bg-blue-200 px-3">
-          <form onSubmit={handleSubmit} className="max-w-full bg-white p-6 rounded-2xl border border-black space-y-4">
+          <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 sm:p-10 rounded-3xl border border-black space-y-6 shadow-md">
             <h2 className="text-black text-2xl font-bold text-center font-serif">SignUp</h2>
             
         {formError && <p className="text-red-600 font-serif">{formError}</p>}
@@ -92,16 +92,29 @@ function Register() {
     {error.confirmPassword && <p id="confirm-password-error" className="text-red-600 text-xs font-serif">{error.confirmPassword}</p>}
 </div>
             
-            <button type="submit" disabled={submitting} className="bg-blue-700 w-full hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition duration-100 cursor-pointer font-serif">
-    {submitting ? "creating account ... " : "Register "}
+            <button
+  type="submit"
+  disabled={submitting}
+  className="w-full py-3.5 px-6 text-base bg-[#e4572e] hover:bg-[#cc4a24] disabled:opacity-60 text-white font-semibold rounded-lg transition duration-100 cursor-pointer font-serif"
+>
+  {submitting ? "Creating account..." : "Register"}
 </button>
-            
-                 <div className="text-center pt-1.5 space-y-2">
-            <p className="text-sm text-gray-500 font-serif">or</p>
-            <GoogleButton />
-            <p className="text-l italic font-bold text-black font-serif ">Already have an account?</p>
-            <Link className="font-bold text-black uppercase text-l hover:underline font-serif" to="/Login">Log in</Link>
-            </div>
+
+<div className="text-center pt-1.5 space-y-3">
+  <p className="text-sm text-gray-500 font-serif">or</p>
+
+  <GoogleButton style={{ width: "100%", height: "48px", fontSize: "16px" }} />
+
+  <p className="text-xs italic font-bold text-black font-serif pt-2">
+    Already have an account?
+  </p>
+  <Link
+    to="/Login"
+    className="block w-full py-3.5 px-6 text-base bg-[#e4572e] hover:bg-[#cc4a24] text-white font-semibold uppercase tracking-wide rounded-lg transition duration-100 font-serif"
+  >
+    Log in
+  </Link>
+</div>
         </form>
         </div>
        
