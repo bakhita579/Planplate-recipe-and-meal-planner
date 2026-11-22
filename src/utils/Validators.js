@@ -1,5 +1,3 @@
-
-
 export function validateEmail(email){
     const trimed = email.trim()
     if (trimed ==="") return "Email is required"
