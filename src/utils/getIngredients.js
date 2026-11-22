@@ -1,19 +1,17 @@
 export function getIngredients(meal) {
-    const ingredients = []
-    for (let i = 0; i <= 20; i++) {
-        const ingredients = array[i];
+  if (!meal) return [];
 
-        const name = [`strIngredient${i}`]
-        const measure = [`strMeasure${i}`]
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    const name = meal[`strIngredient${i}`];
+    const measure = meal[`strMeasure${i}`];
 
-        if (name && name.trim()) {
-            ingredients.push({
-                name:name.trim(),
-                measure: measure ? measure.trim(): "",
-            })
-            
-        }
-    
+    if (typeof name === "string" && name.trim()) {
+      ingredients.push({
+        name: name.trim(),
+        measure: typeof measure === "string" ? measure.trim() : "",
+      });
     }
-    return ingredients
+  }
+  return ingredients;
 }

@@ -16,9 +16,9 @@ export async function getMealById(id) {
         
     }
     const data = await response.json()
-    return data.meals ?? []
-    
+    return data.meals?.[0] ?? null
 }
+    
 export async function getCategories() {
     const response = await fetch (`${API_URL}/list.php?c=list`)
     if (!response.ok){
