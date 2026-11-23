@@ -5,6 +5,7 @@ Planplate is a responsive recipe discovery and meal-planning web application. It
 figma: https://www.figma.com/design/gpo4hY869eTGsIOripFxgx/Planplate?node-id=0-1&p=f&t=QGytGnKjsjQFo0PN-0
 planplate:https://planplate-meals.web.app/
 Github:https://github.com/bakhita579/Planplate-recipe-and-meal-planner
+
 ## Features
 
 - Search recipes by name
